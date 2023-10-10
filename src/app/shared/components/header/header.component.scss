@@ -1,0 +1,91 @@
+nav {
+  background: linear-gradient(to right, #950b0b, #440606);
+  color: #fff;
+  sub{
+color:#fd7d;
+  }
+  .container {
+    padding: 5px;
+    @media (min-width: 1200px) {
+      & {
+        
+        font-size: 1.2rem;
+      }
+    }
+    .content {
+      display: flex;
+      justify-content: space-between;
+      ul {
+        
+        @media (max-width:600px) {
+           &{
+            display: none;
+           } 
+        }
+        display: flex;
+        justify-content: space-between;
+        width: 20%;
+        list-style: none;
+        li {
+          
+          text-decoration: none;
+          cursor: pointer;
+          &:hover{
+            background-color:rgba($color: #000000, $alpha: 0.5);
+            padding: 5px;
+          }
+          &:active{
+            background-color:#fd7d;
+          }
+        }
+      }
+
+      .mobile{
+      
+        @media  (min-width:600px){
+            &{
+                display: none;
+               }     
+        }
+        label{
+         
+            font-size: 1.5rem;
+            &:active{
+              background-color: #fd7d;
+              padding: 10px;
+            }
+        }
+        #check{
+            display: none;
+        }
+        dialog{
+            background: linear-gradient(to right, #950b0b, #440606);
+            color: #fff;
+            display: none;
+            position: fixed;
+            left: 75%;
+            ol{
+                padding: 5px;
+                list-style: none;
+                li {
+                    padding: 10px;
+                    text-decoration: none;
+                    cursor: pointer;
+                    border-bottom:1px solid #fff;
+                    &:hover{
+                      background-color:rgba($color: #000000, $alpha: 0.5);
+                      
+                    }
+                    &:active{
+                      background-color:#fd7d;
+                    }
+                  }
+            }
+        }
+        input:checked+dialog{
+            display: block;
+        }
+      }
+    }
+  }
+}
