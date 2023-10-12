@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartComponent } from './components/cart/cart.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 
 
 @NgModule({
   declarations: [
-    CartComponent
+    ErrorPageComponent
   ],
   imports: [
     CommonModule
-  ],
-  exports:[
-    CartComponent
   ]
-
 })
-export class CartsModule { }
+export class ErrorPageModule { }
