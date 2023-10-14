@@ -37,6 +37,11 @@ color:#fd7d;
           &:active{
             background-color:#fd7d;
           }
+          a{
+            text-decoration: none;
+            background-color: transparent;
+            color: inherit;
+          }
         }
       }
 
@@ -78,6 +83,9 @@ color:#fd7d;
                     }
                     &:active{
                       background-color:#fd7d;
+                    }
+                    a{
+                      text-decoration: none;
                     }
                   }
             }

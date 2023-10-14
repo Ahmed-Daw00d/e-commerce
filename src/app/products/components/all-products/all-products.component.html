@@ -1,29 +1,33 @@
 <section class="box mt-3">
   <!-- categories -->
-  <div class="my-2 w-25">
+  <div class="my-2 w-50">
     <label for="">Categories :</label>
-    <select class="form-control">
-      <option value="1">option 1</option>
-      <option value="2">option 2</option>
-      <option value="3">option 3</option>
-      <option value="5">option 4</option>
-      <option value="5">option 5</option>
+    <select class="form-control" (change)="filterCategorie($event)">
+      <option value="All" selected>All</option>
+      <option value="{{ cat }}" *ngFor="let cat of categories">
+        {{ cat }}
+      </option>
     </select>
   </div>
   <!-- iteams -->
-  <div class="row mt-4">
-    <div class="col-md-3 col-sm-12" *ngFor="let item of products">
+  <div class="row mt-4" *ngIf="!loading">
+    <div class="col-md-3 col-sm-12" *ngFor="let item of product">
       <div class="item">
-        <img src="{{item.images}}" alt="error " />
+        <img src="{{ item.image}}" alt="error " />
         <div class="body">
-          <h4>{{item.title}}</h4>
-          <p>{{item.description}}</p>
+          <h4>{{ item.title}}</h4>
+          <p>{{ item.description }}</p>
         </div>
-        <div class="px-3 mb-2 d-flex justify-content-between aligin-items-center">
-            <button class="btn btn-success">Add to Cart</button> 
-            <span>{{item.price}} L.E</span>
+        <div
+          class="px-3 mb-2 d-flex justify-content-between aligin-items-center"
+        >
+          <button class="btn btn-success">Add to Cart</button>
+          <span>{{ item.price }} L.E</span>
         </div>
       </div>
     </div>
+  </div>
+  <div class="text-center w100" *ngIf="loading">
+    <app-spinner></app-spinner>
   </div>
 </section>

@@ -10,6 +10,16 @@ export class ProductsService {
 
   //function get All data from api
   getAllProducts() {
-    return this.http.get('https://api.escuelajs.co/api/v1/products');
+    return this.http.get('https://fakestoreapi.com/products');
   }
+
+  //function get All data categories from api
+  getAllCategories(){
+    return this.http.get('https://fakestoreapi.com/products/categories');
+  }
+//
+getProductsByCategory(keyword:any){
+  return  this.http.get("https://fakestoreapi.com/products/category/"+keyword)
+}
+
 }
