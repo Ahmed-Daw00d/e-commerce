@@ -4,10 +4,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import{HttpClientModule}from '@angular/common/http';
-import { SpinnerComponent } from './components/spinner/spinner.component'
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SelectComponent } from './components/select/select.component'
 @NgModule({
-  declarations: [HeaderComponent, SpinnerComponent],
+  declarations: [HeaderComponent, SpinnerComponent, SelectComponent],
   imports: [CommonModule, BrowserModule, RouterModule,HttpClientModule],
-  exports: [HeaderComponent,SpinnerComponent],
+  exports: [HeaderComponent,SpinnerComponent,SelectComponent],
 })
 export class SharedModule {}

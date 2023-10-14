@@ -74,4 +74,5 @@ export class AllProductsComponent {
       ? (this.product = this.products.filter((s) => s.category == value),  this.loading=false)
       : window.location.reload();
   }
+  
 }
