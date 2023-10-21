@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProductsService {
-  
+ allItem:any[]=[];
   //http is prameter to extend from HttpClient and this help to get data from api
   constructor(private http: HttpClient) {}
 

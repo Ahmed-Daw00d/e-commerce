@@ -8,7 +8,7 @@ import { ErrorPageComponent } from './error-page/components/error-page/error-pag
 const routes: Routes = [
 
   {path:"products",component:AllProductsComponent},
-  {path:"details",component:ProductsDetailsComponent},
+  {path:"details/:id",component:ProductsDetailsComponent},
   {path:"cart",component:CartComponent},
   {path:"error",component:ErrorPageComponent},
   {path:"**",redirectTo:"products",pathMatch:"full"}

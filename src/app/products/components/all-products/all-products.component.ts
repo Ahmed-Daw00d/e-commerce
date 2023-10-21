@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Router, RouterLink } from '@angular/router';
 
@@ -11,7 +11,7 @@ export class AllProductsComponent {
   //products is a array to store data and send data to html home
   products: any[] = [];
   //product is a array to store data from products and send data to html home
-  product: any[] = [];
+ product: any[] = [];
   //categorie is a array to store data and send data to html home
   categories: any[] = [];
   //for spinner or loading
@@ -20,7 +20,10 @@ export class AllProductsComponent {
   cartProducts: any[] = [];
 
   //service get Alldata from ProductsService
-  constructor(private service: ProductsService, public router: Router) {}
+  constructor(private service: ProductsService, public router: Router) {
+
+  
+  }
   ngOnInit(): void {
     this.getProducts();
     this.getCategorie();
@@ -34,6 +37,10 @@ export class AllProductsComponent {
         this.products = res;
         this.product = this.products;
         this.loading = false;
+        //send data to page of details
+        this.service.allItem=this.products;
+       
+        
       },
       (error) => {
         this.router.navigate(['error']);
@@ -93,4 +100,5 @@ export class AllProductsComponent {
       localStorage.setItem('cart', JSON.stringify(this.cartProducts));
     }
   }
+  
 }

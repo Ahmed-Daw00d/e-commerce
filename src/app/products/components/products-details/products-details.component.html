@@ -1,1 +1,20 @@
-<p>products-details works!</p>
+<section class="box">
+  <div class="row" >
+    <div class="col-md-5 col-sm-12">
+      <img src="{{ item.image }}" alt="sorry" />
+    </div>
+
+    <div class="col-md-7 col-sm-12">
+      <div class="info">
+        <ul class="list-unstyled">
+          <li><strong>Title:</strong> {{ item.title }}</li>
+          <li><strong>Category: </strong>{{ item.category }}</li>
+          <li><strong>Description: </strong>{{ item.description }}</li>
+          <li><strong>Rating: </strong>{{ item.rating.rate }}</li>
+          <li><strong>Price: </strong>{{ item.price }} L.E</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</section>
