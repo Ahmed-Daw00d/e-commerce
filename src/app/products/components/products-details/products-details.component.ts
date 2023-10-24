@@ -11,7 +11,7 @@ import { ProductsService } from '../../services/products.service';
 export class ProductsDetailsComponent {
   id: any;
   item: any;
-  
+
   constructor(
     router: ActivatedRoute,
     private service: ProductsService,
@@ -23,14 +23,14 @@ export class ProductsDetailsComponent {
     this.getproduct();
   }
 
-  getproduct(){
-    try{this.item = this.service.allItem.find((res) => res.id == this.id);
-    if (this.item == undefined) {
-      
-      this.pageRouter.navigate(['products']);
-    }}catch{
+  getproduct() {
+    try {
+      this.item = this.service.allItem.find((res) => res.id == this.id);
+      if (this.item == undefined) {
+        this.pageRouter.navigate(['products']);
+      }
+    } catch {
       this.pageRouter.navigate(['error']);
     }
-    
   }
 }

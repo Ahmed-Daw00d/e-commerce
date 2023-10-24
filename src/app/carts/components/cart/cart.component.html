@@ -1,1 +1,99 @@
-<p>cart works!</p>
+<section class="cartWep" *ngIf="desplay">
+  <div class="cartBox">
+    <h1 class="text-danger">Shopping cart</h1>
+    <div class="headCart">
+      <p class="lead">
+        item in cart : <label class="font-weight-bold text-danger">2</label>
+      </p>
+      <span class="text-capitalize">Clear cart</span>
+    </div>
+
+    <table class="table">
+      <thead class="text-capitalize">
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Price</th>
+          <th style="width: 25%">Quantity</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartProducts; let index=index">
+          <td><img src="{{item.item.image}}" alt="" routerLink="/details/{{item.item.id}}"/></td>
+          <td routerLink="/details/{{item.item.id}}">{{item.item.title}}</td>
+          <td>{{item.item.price}} L.E</td>
+          <td>
+            <div class="quantity">
+              <button class="btn btn-dark" (click)="addAmount(index)">+</button>
+              <input class="form-control" type="number" min="1" max="10"  ngModel="{{item.quantity}}" disabled/>
+              <button class="btn btn-dark" (click)="minsAmount(index)">-</button>
+            </div>
+          </td>
+          <td>{{item.item.price*item.quantity}}L.E</td>
+          <td>
+            <button class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>Total : {{total}} L.E</th>
+          <th><button class="btn btn-success">Order Now</button></th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="alert alert-success" role="alert">
+    <strong>well done!</strong> your order is successFull send
+  </div>
+</section>
+<!-- screen cart to mobile -->
+<section class="cartMobile" *ngIf="!desplay">
+  <div class="cartBoxMobile">
+    <h1 class="text-danger">Shopping cart</h1>
+    <!-- head -->
+    <div class="headCart">
+      <p class="lead">
+        item in cart : <label class="font-weight-bold text-danger">2</label>
+      </p>
+      <span class="text-capitalize">Clear cart</span>
+    </div>
+    <!--end head  -->
+    <!-- item -->
+    <div class="item">
+      <div class="product" *ngFor="let item of cartProducts let index=index">
+        <div class="itq">
+          <img src="{{item.item.image}}" alt=""  routerLink="/details/{{item.item.id}}"/>
+          <p routerLink="/details/{{item.item.id}}">{{item.item.title}}</p>
+          <span>{{item.item.price}}L.E</span>
+        </div>
+        <div class="pd">
+          <div class="quantity">
+            <button class="btn btn-dark" (click)="addAmount(index)">+</button>
+            <input class="form-control" type="number" min="1" max="10" ngModel="{{item.quantity}}" disabled/>
+            <button class="btn btn-dark" (click)="minsAmount(index)">-</button>
+          </div>
+
+          <span>Total :{{item.item.price*item.quantity}} L.E</span>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+    <!-- end item -->
+    <!-- fotter -->
+    <footer>
+      <h6>Total:{{total}} L.E</h6>
+      <button class="btn btn-success">Order Now</button>
+    </footer>
+  </div>
+  <!-- message  -->
+  <div class="alert alert-success" role="alert">
+    <strong>well done!</strong> your order is successFull send
+  </div>
+</section>

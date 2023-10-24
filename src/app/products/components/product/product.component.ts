@@ -9,7 +9,7 @@ export class ProductComponent {
 @Input() data:any={};
 
 addButton:boolean=false;
-amount:number=0;
+amount:number=1;
 constructor(){
 
 }

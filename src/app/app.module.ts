@@ -14,6 +14,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    ProductsModule,
+    CartsModule,
     NgbModule,
     
   ],
