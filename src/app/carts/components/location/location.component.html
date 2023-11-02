@@ -1,0 +1,28 @@
+<section class="container">
+  <div class="selectLocation m-5">
+    <label for="location">Choose location:</label>
+    <select class="form-control" name="location"  (change)="selectKindLocation($event)"  > 
+      <option value="house" selected>house</option>
+      <option value="store" >store</option>
+    </select>
+  </div>
+
+  <div class="selecthouse m-5" >
+<form action="">
+  <label for="name">Name</label>
+  <input class="form-control" type="text" name="name" id="name">
+  <label for="phone">phone</label>
+  <input class="form-control" type="tel" name="phone" id="phone" >
+  <label for="address" *ngIf="desblay">address</label>
+  <input class="form-control" type="text" name="address" id="address" *ngIf="desblay">
+  <label for="city" *ngIf="desblay">city</label>
+  <input class="form-control" type="text" name="city" id="city" *ngIf="desblay">
+  <label for="district" *ngIf="desblay">district</label>
+  <input class="form-control" type="text" name="district" id="district" *ngIf="desblay">
+ 
+  <input class="btn btn-outline-danger m-3" type="submit" value="Submit" (click)="getData()">
+</form>
+  </div>
+ 
+
+</section>

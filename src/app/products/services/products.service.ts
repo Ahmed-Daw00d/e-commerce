@@ -19,8 +19,8 @@ export class ProductsService {
     return this.http.get('https://fakestoreapi.com/products/categories');
   }
 //
-getProductsByCategory(keyword:any){
-  return  this.http.get("https://fakestoreapi.com/products/category/"+keyword)
-}
+// getProductsByCategory(keyword:any){
+//   return  this.http.get("https://fakestoreapi.com/products/category/"+keyword)
+// }
 
 }

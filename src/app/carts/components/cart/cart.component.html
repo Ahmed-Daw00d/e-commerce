@@ -1,11 +1,11 @@
-<section class="cartWep" *ngIf="desplay">
+<section class="cartWep" *ngIf="desplay && cartEmpty">
   <div class="cartBox">
     <h1 class="text-danger">Shopping cart</h1>
     <div class="headCart">
       <p class="lead">
-        item in cart : <label class="font-weight-bold text-danger">2</label>
+        item in cart : <label class="font-weight-bold text-danger">{{cartProducts.length}}</label>
       </p>
-      <span class="text-capitalize">Clear cart</span>
+      <span class="text-capitalize" (click)="clearCart()">Clear cart</span>
     </div>
 
     <table class="table">
@@ -33,18 +33,18 @@
           </td>
           <td>{{item.item.price*item.quantity}}L.E</td>
           <td>
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-danger" (click)="Delete(index)">Delete</button>
           </td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
+          <th>Total Quantity : {{totalQuantity}}</th>
           <th></th>
           <th></th>
           <th></th>
-          <th></th>
-          <th>Total : {{total}} L.E</th>
-          <th><button class="btn btn-success">Order Now</button></th>
+          <th>Total Price : {{total}} L.E</th>
+          <th><button class="btn btn-success" routerLink="/location">Order Now</button></th>
         </tr>
       </tfoot>
     </table>
@@ -53,16 +53,18 @@
     <strong>well done!</strong> your order is successFull send
   </div>
 </section>
+
 <!-- screen cart to mobile -->
-<section class="cartMobile" *ngIf="!desplay">
+
+<section class="cartMobile" *ngIf="!desplay && cartEmpty">
   <div class="cartBoxMobile">
     <h1 class="text-danger">Shopping cart</h1>
     <!-- head -->
     <div class="headCart">
       <p class="lead">
-        item in cart : <label class="font-weight-bold text-danger">2</label>
+        item in cart : <label class="font-weight-bold text-danger">{{cartProducts.length}}</label>
       </p>
-      <span class="text-capitalize">Clear cart</span>
+      <span class="text-capitalize" (click)="clearCart()">Clear cart</span>
     </div>
     <!--end head  -->
     <!-- item -->
@@ -81,15 +83,16 @@
           </div>
 
           <span>Total :{{item.item.price*item.quantity}} L.E</span>
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-danger" (click)="Delete(index)">Delete</button>
         </div>
       </div>
     </div>
     <!-- end item -->
     <!-- fotter -->
     <footer>
-      <h6>Total:{{total}} L.E</h6>
-      <button class="btn btn-success">Order Now</button>
+      <h6>Total Quantity :{{totalQuantity}} </h6>
+      <h6>Total :{{total}} L.E</h6>
+      <button class="btn btn-success" routerLink="/location/{{total}}">Order Now</button>
     </footer>
   </div>
   <!-- message  -->
@@ -97,3 +100,10 @@
     <strong>well done!</strong> your order is successFull send
   </div>
 </section>
+
+<div class="empty" *ngIf="!cartEmpty">
+  <img src="assets/images/emptyCart.png" alt="Your Cart is Embty!" title="Your Cart is Embty!" >
+ <h4>Your Cart is <span class="btn btn-danger">Embty!</span></h4>
+ <p>Must add items on the cart before you proceed to check out !</p>
+<button class="btn btn-outline-success" routerLink="/products">go to Shopping</button>
+</div>

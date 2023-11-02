@@ -19,6 +19,7 @@ ngOnInit(){
 //send item to products-components
 @Output() item = new EventEmitter()
 add(){
+  if(this.amount>10){this.amount=10}
 this.item.emit({item:this.data,quantity:this.amount})
 }
 

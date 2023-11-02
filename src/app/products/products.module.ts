@@ -6,7 +6,9 @@ import { SharedModule } from "../shared/shared.module";
 import { ProductComponent } from './components/product/product.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SliderProductComponent } from './components/slider-product/slider-product.component';
 
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 
 
 
@@ -16,6 +18,7 @@ import { RouterModule } from '@angular/router';
         AllProductsComponent,
         ProductsDetailsComponent,
         ProductComponent,
+        SliderProductComponent,
       
     ],
     exports: [
@@ -24,7 +27,7 @@ import { RouterModule } from '@angular/router';
     ],
     imports: [
         CommonModule,
-        SharedModule,FormsModule,RouterModule
+        SharedModule,FormsModule,RouterModule,MdbCarouselModule
     ]
 })
 export class ProductsModule { }

@@ -11,10 +11,13 @@ export class CartComponent {
   //
   cartProducts: any[] = [];
   total: any = 0;
+  totalQuantity: any = 0;
+  cartEmpty:boolean=false;
   //
   ngOnInit() {
     this.convertCart();
     this.getCartProducts();
+    this.cartProducts.length==0?this.cartEmpty=false:this.cartEmpty=true;
   }
   //convert cart from mobile to lap and lap to mobile
   convertCart() {
@@ -26,6 +29,7 @@ export class CartComponent {
       this.cartProducts = JSON.parse(localStorage.getItem('cart')!);
     }
     this.getCartTotle();
+    this.getQuantityTotal();
   }
   // calc all price to all product in cart
   getCartTotle() {
@@ -35,7 +39,7 @@ export class CartComponent {
         this.cartProducts[i].item.price * this.cartProducts[i].quantity;
     }
   }
-  //
+  //plus or mins quantity in item from cart
   addAmount(index: number) {
     if (this.cartProducts[index].quantity < 10) {
       this.cartProducts[index].quantity++;
@@ -45,6 +49,7 @@ export class CartComponent {
       localStorage.setItem('cart', JSON.stringify(this.cartProducts));
     }
     this.getCartTotle();
+    this.getQuantityTotal();
   }
   minsAmount(index: number) {
     if (this.cartProducts[index].quantity > 1) {
@@ -55,5 +60,32 @@ export class CartComponent {
       localStorage.setItem('cart', JSON.stringify(this.cartProducts));
     }
     this.getCartTotle();
+    this.getQuantityTotal();
+  }
+  // delet item from cart
+  Delete(index: any) {
+    this.cartProducts.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    this.getCartTotle();
+    this.getQuantityTotal();
+    if(this.cartProducts.length==0){
+      window.location.reload();
+    }
+  }
+  //calac total quantity for all item in cart
+  getQuantityTotal(){
+    this.totalQuantity=0;
+    for(let i in this.cartProducts){
+      this.totalQuantity+=this.cartProducts[i].quantity
+    }
+
+  }
+  //delete all item in cart
+  clearCart(){
+    this.cartProducts.splice(0,this.cartProducts.length);
+    localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    this.getCartTotle();
+    this.getQuantityTotal();
+    window.location.reload();
   }
 }

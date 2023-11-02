@@ -4,8 +4,10 @@
     <!-- component to select category (sharedComponent) -->
     <app-select [data]="categories" [title]="'Categories'" (selectedValue)="filterCategorie($event)"></app-select>
   </div>
+  
   <!-- iteams -->
   <div class="row mt-4" *ngIf="!loading">
+    <app-slider-product [item]="product"></app-slider-product >
     <div class="col-md-6 col-lg-4 col-xl-3 col-sm-12" *ngFor="let item of product" >
       <!-- component to singl card for item (products) -->
       <app-product [data]="item"  (item)="addToCart($event)" ></app-product>
