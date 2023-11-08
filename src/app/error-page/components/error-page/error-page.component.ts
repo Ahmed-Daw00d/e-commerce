@@ -10,6 +10,11 @@ export class ErrorPageComponent {
   constructor(public router: Router) {}
   ngOnInit(): void {
     this.changePage();
+    if (navigator.onLine == false) {
+      document.getElementById('h')!.innerHTML="No internet";
+      document.getElementById('p')!.innerHTML="Checking the network cables, modem, and router \n Reconnecting to Wi-Fi";
+
+    }
   }
 
   changePage() {

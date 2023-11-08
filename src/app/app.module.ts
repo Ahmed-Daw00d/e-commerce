@@ -23,6 +23,9 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,6 +52,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
+    provideFirebaseApp(() => initializeApp({"projectId":"market-8074a","appId":"1:490593971746:web:cd379079a853bb4c0ba47b","storageBucket":"market-8074a.appspot.com","apiKey":"AIzaSyBdFEkvQQejUVw7XkT2eJz4myQ7njf6Gvo","authDomain":"market-8074a.firebaseapp.com","messagingSenderId":"490593971746"})),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
     
   ],
   providers: [],

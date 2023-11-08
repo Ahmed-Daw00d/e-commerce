@@ -58,7 +58,7 @@ export class AllProductsComponent {
         this.loading = false;
       },
       (error) => {
-        alert(error.massege);
+        console.log(error.message);
         this.loading = false;
       }
     );

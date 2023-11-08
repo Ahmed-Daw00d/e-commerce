@@ -19,8 +19,8 @@ constructor(){
 ngOnInit(){
  this.item.length==0?this.desplay=false:this.desplay=true;
  this.index1= Math.floor(Math.random() * this.item.length);
-  this.index2= Math.floor(Math.random() * this.item.length);
-  this.index3= Math.floor(Math.random() * this.item.length);
+  this.index2= Math.floor(Math.random() * this.item.length+1);
+  this.index3= Math.floor(Math.random() * this.item.length+2);
 }
 
 }

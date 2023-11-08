@@ -5,10 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { LocationComponent } from './components/location/location.component';
 
+import { SharedModule as SharedModule } from "../shared/shared.module";
+import { DpModule } from '../dp/dp.module';
+
 @NgModule({
-  declarations: [CartComponent, LocationComponent],
-  imports: [CommonModule, FormsModule,RouterLink],
-  exports: [CartComponent],
+    declarations: [CartComponent, LocationComponent],
+    exports: [CartComponent],
+    imports: [CommonModule, FormsModule, RouterLink, SharedModule,DpModule]
 })
 export class CartsModule {
  

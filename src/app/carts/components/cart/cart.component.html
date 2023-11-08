@@ -44,14 +44,12 @@
           <th></th>
           <th></th>
           <th>Total Price : {{total}} L.E</th>
-          <th><button class="btn btn-success" routerLink="/location">Order Now</button></th>
+          <th><button class="btn btn-success" routerLink="/location/{{total}}">Order Now</button></th>
         </tr>
       </tfoot>
     </table>
   </div>
-  <div class="alert alert-success" role="alert">
-    <strong>well done!</strong> your order is successFull send
-  </div>
+ 
 </section>
 
 <!-- screen cart to mobile -->
@@ -96,9 +94,7 @@
     </footer>
   </div>
   <!-- message  -->
-  <div class="alert alert-success" role="alert">
-    <strong>well done!</strong> your order is successFull send
-  </div>
+ 
 </section>
 
 <div class="empty" *ngIf="!cartEmpty">
