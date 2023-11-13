@@ -73,15 +73,15 @@
           <p routerLink="/details/{{item.item.id}}">{{item.item.title}}</p>
           <span>{{item.item.price}}L.E</span>
         </div>
-        <div class="pd">
-          <div class="quantity">
+        <div class="pd ">
+          <div class="quantity m-auto">
             <button class="btn btn-dark" (click)="addAmount(index)">+</button>
             <input class="form-control" type="number" min="1" max="10" ngModel="{{item.quantity}}" disabled/>
             <button class="btn btn-dark" (click)="minsAmount(index)">-</button>
           </div>
 
-          <span>Total :{{item.item.price*item.quantity}} L.E</span>
-          <button class="btn btn-danger" (click)="Delete(index)">Delete</button>
+          <span class="m-auto">Total :{{item.item.price*item.quantity}} L.E</span>
+          <button class="btn btn-danger m-1" (click)="Delete(index)">Delete</button>
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@
     <footer>
       <h6>Total Quantity :{{totalQuantity}} </h6>
       <h6>Total :{{total}} L.E</h6>
-      <button class="btn btn-success" routerLink="/location/{{total}}">Order Now</button>
+      <button class="btn btn-success " routerLink="/location/{{total}}">Order Now</button>
     </footer>
   </div>
   <!-- message  -->

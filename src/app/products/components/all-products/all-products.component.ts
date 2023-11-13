@@ -39,8 +39,6 @@ export class AllProductsComponent {
         this.loading = false;
         //send data to page of details
         this.service.allItem=this.products;
-       
-        
       },
       (error) => {
         this.router.navigate(['error']);

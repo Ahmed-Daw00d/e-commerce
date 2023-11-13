@@ -52,7 +52,15 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp({"projectId":"market-8074a","appId":"1:490593971746:web:cd379079a853bb4c0ba47b","storageBucket":"market-8074a.appspot.com","apiKey":"AIzaSyBdFEkvQQejUVw7XkT2eJz4myQ7njf6Gvo","authDomain":"market-8074a.firebaseapp.com","messagingSenderId":"490593971746"})),
+    provideFirebaseApp(() => initializeApp({
+      apiKey: "AIzaSyA_HjIy_F1wDbxHxFLBSFPIWLzVmIRxsW4",
+      authDomain: "market-ae1b9.firebaseapp.com",
+      projectId: "market-ae1b9",
+      storageBucket: "market-ae1b9.appspot.com",
+      messagingSenderId: "55258722065",
+      appId: "1:55258722065:web:5af80aca0cf17a603766b0",
+      measurementId: "G-YK2SXEFXB7"
+    })),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     

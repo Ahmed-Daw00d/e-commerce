@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { timeout } from 'rxjs';
+
 
 import { DpService } from 'src/app/dp/service/dp.service';
 
@@ -97,13 +97,16 @@ export class LocationComponent {
   //
   sendData = () => {
     localStorage.setItem('order', JSON.stringify(this.locationAndOrder));
-//sen data to firebase
+    //sen data to firebase
     this.serviceDp
-      .AddToFirebase(this.locationAndOrder, this.locationAndOrder.name)
+      .AddToFirebase(this.locationAndOrder, 'orders')
       .then(() => {
+        //
         this.spinner = false;
-        this.willDone=true;
-        setTimeout(()=>{ this.routerNav.navigate(['cart']);},100000)
+        this.willDone = true;
+        setTimeout(() => {
+          this.routerNav.navigate(['cart']);
+        }, 100000);
       })
       .catch((error) => {
         alert(error.message);
@@ -111,7 +114,6 @@ export class LocationComponent {
   };
   //
   clearCart = () => {
-  
     this.cartProducts.splice(0, this.cartProducts.length);
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
     this.routerNav.navigate(['cart']);
