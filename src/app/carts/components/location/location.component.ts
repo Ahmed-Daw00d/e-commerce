@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
-
 import { DpService } from 'src/app/dp/service/dp.service';
 
 @Component({
@@ -24,7 +23,7 @@ export class LocationComponent {
   address: any;
   city: any;
   district: any;
-  date: string = new Date(Date.now()).toLocaleString();
+  date: string = new Date(Date.now()).toLocaleString('en-US');
   userId: any = Math.random();
   //
 
@@ -77,7 +76,7 @@ export class LocationComponent {
         address: this.address.value,
         city: this.city.value,
         district: this.district.value,
-        date: new Date(Date.now()).toLocaleString(),
+        date: new Date(Date.now()).toLocaleString('en-US'),
         userId: this.userId,
       };
       //run function to sent data to datbase and local storage
